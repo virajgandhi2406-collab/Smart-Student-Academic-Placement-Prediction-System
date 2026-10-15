@@ -1,0 +1,25 @@
+{
+  "name": "smart-student-academic-and-placement-prediction-system",
+  "version": "1.0.0",
+  "description": "EduPredict: Smart Student Academic & Placement Prediction System - MIT World Peace University Pune",
+  "scripts": {
+    "server": "npm.cmd --prefix server start",
+    "client": "npm.cmd --prefix client run dev",
+    "ml": "python ml-service/main.py",
+    "train-ml": "python ml-service/train_models.py",
+    "security-audit": "node server/src/security/audit.js",
+    "seed": "npm.cmd --prefix server run seed"
+  },
+  "keywords": [
+    "edupredict",
+    "placement-prediction",
+    "machine-learning",
+    "edtech",
+    "rbac",
+    "xgboost",
+    "random-forest",
+    "mit-wpu"
+  ],
+  "author": "Group 13 - M.Sc Computer Science (Ansari FaizAlam, Viraj Gandhi, Vraj Modi, Priyanka Jana)",
+  "license": "ISC"
+}

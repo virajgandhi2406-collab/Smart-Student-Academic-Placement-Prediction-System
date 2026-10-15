@@ -1,0 +1,45 @@
+{
+  "dataset_size": 1200,
+  "features_used": [
+    "CGPA",
+    "10th %",
+    "12th %",
+    "Attendance %",
+    "Active Backlogs",
+    "Coding Assessment Score",
+    "Aptitude Assessment Score",
+    "Technical Skills Count",
+    "Projects Count",
+    "Internships Count",
+    "Certifications Count",
+    "Faculty Evaluation Rating"
+  ],
+  "model_comparison": {
+    "Logistic Regression": {
+      "accuracy": 99.17,
+      "precision": 100.0,
+      "recall": 98.95,
+      "f1_score": 99.47
+    },
+    "Decision Tree": {
+      "accuracy": 65.0,
+      "precision": 96.49,
+      "recall": 57.89,
+      "f1_score": 72.37
+    },
+    "Random Forest": {
+      "accuracy": 56.25,
+      "precision": 97.75,
+      "recall": 45.79,
+      "f1_score": 62.37
+    },
+    "XGBoost": {
+      "accuracy": 85.83,
+      "precision": 87.5,
+      "recall": 95.79,
+      "f1_score": 91.46
+    }
+  },
+  "selected_model": "Random Forest & XGBoost Ensemble",
+  "champion_accuracy": 85.83
+}
