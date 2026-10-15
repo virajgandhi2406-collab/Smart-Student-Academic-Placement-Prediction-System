@@ -65,20 +65,20 @@ export default function Navbar({ onOpenAuthModal }) {
         {/* Brand & University Tag */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <div style={{
-            width: 44,
-            height: 44,
-            borderRadius: 12,
-            background: 'linear-gradient(135deg, #4f46e5, #06b6d4)',
+            width: 40,
+            height: 40,
+            borderRadius: 8,
+            background: 'var(--accent-primary)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 16px rgba(99, 102, 241, 0.4)'
+            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)'
           }}>
-            <GraduationCap size={26} color="#ffffff" />
+            <GraduationCap size={24} color="#ffffff" />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.03em', background: 'linear-gradient(to right, #ffffff, #a5b4fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <span style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-0.02em', color: '#ffffff' }}>
                 EduPredict
               </span>
               <span className="badge badge-info" style={{ fontSize: '0.65rem' }}>v2.6 ML</span>
@@ -227,8 +227,8 @@ export default function Navbar({ onOpenAuthModal }) {
                           <div key={n.id} style={{
                             padding: '8px 10px',
                             borderRadius: 'var(--radius-sm)',
-                            background: n.is_read ? 'rgba(255, 255, 255, 0.02)' : 'rgba(99, 102, 241, 0.1)',
-                            borderLeft: `3px solid ${n.type === 'success' ? '#10b981' : n.type === 'warning' ? '#f59e0b' : '#6366f1'}`,
+                            background: n.is_read ? 'rgba(255, 255, 255, 0.02)' : 'rgba(37, 99, 235, 0.12)',
+                            borderLeft: `3px solid ${n.type === 'success' ? '#10b981' : n.type === 'warning' ? '#f59e0b' : '#2563eb'}`,
                             fontSize: '0.8rem'
                           }}>
                             <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{n.title}</div>
@@ -241,15 +241,15 @@ export default function Navbar({ onOpenAuthModal }) {
                 )}
               </div>
 
-              {/* Current User Pill */}
+              {/* Current User Tag */}
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: 10,
                 background: 'rgba(255, 255, 255, 0.04)',
                 border: '1px solid var(--border-color)',
-                padding: '6px 14px',
-                borderRadius: 'var(--radius-full)'
+                padding: '6px 12px',
+                borderRadius: 'var(--radius-sm)'
               }}>
                 <div style={{
                   width: 28,

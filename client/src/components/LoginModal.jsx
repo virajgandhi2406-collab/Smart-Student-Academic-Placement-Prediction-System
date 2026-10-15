@@ -157,17 +157,17 @@ export default function LoginModal({ isOpen, onClose }) {
         {/* Modal Header */}
         <div style={{ textAlign: 'center', marginBottom: 20 }}>
           <div style={{
-            width: 50,
-            height: 50,
-            borderRadius: 14,
-            background: 'linear-gradient(135deg, #4f46e5, #06b6d4)',
+            width: 48,
+            height: 48,
+            borderRadius: 10,
+            background: 'var(--accent-primary)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 12px',
-            boxShadow: '0 4px 16px rgba(99, 102, 241, 0.4)'
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
           }}>
-            <GraduationCap size={28} color="#ffffff" />
+            <GraduationCap size={26} color="#ffffff" />
           </div>
           <h2 style={{ fontSize: '1.4rem', fontWeight: 800 }}>EduPredict Portal</h2>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
@@ -324,8 +324,9 @@ export default function LoginModal({ isOpen, onClose }) {
             ) : (
               <form onSubmit={handleCompleteRegistration}>
                 {demoOtpHint && (
-                  <div style={{ background: 'rgba(99, 102, 241, 0.1)', padding: 10, borderRadius: 6, fontSize: '0.8rem', color: '#a5b4fc', marginBottom: 14 }}>
-                    🔑 Demo Email Verification OTP: <strong>{demoOtpHint}</strong>
+                  <div style={{ background: 'rgba(37, 99, 235, 0.12)', border: '1px solid rgba(37, 99, 235, 0.25)', padding: 10, borderRadius: 6, fontSize: '0.8rem', color: '#93c5fd', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Key size={14} />
+                    <span>Demo Email Verification OTP: <strong>{demoOtpHint}</strong></span>
                   </div>
                 )}
                 <div className="form-group">

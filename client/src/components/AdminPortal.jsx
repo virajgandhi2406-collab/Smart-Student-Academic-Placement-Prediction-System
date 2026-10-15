@@ -331,7 +331,7 @@ export default function AdminPortal() {
               Paste JSON or Excel rows for automated batch onboarding of students and faculty.
             </p>
             {bulkMsg && (
-              <div style={{ padding: '8px 12px', borderRadius: 'var(--radius-sm)', background: 'rgba(99, 102, 241, 0.2)', marginBottom: 14, fontSize: '0.8rem' }}>
+              <div style={{ padding: '8px 12px', borderRadius: 'var(--radius-sm)', background: 'rgba(37, 99, 235, 0.15)', border: '1px solid rgba(37, 99, 235, 0.3)', color: '#93c5fd', marginBottom: 14, fontSize: '0.8rem' }}>
                 {bulkMsg}
               </div>
             )}
@@ -474,7 +474,7 @@ export default function AdminPortal() {
                   return (
                     <tr key={log.id} style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.04)', background: isViolation ? 'rgba(244, 63, 94, 0.08)' : 'transparent' }}>
                       <td style={{ padding: 10, color: 'var(--text-muted)' }}>{new Date(log.created_at).toLocaleTimeString()}</td>
-                      <td style={{ padding: 10, fontWeight: 600, color: isViolation ? '#fb7185' : '#a5b4fc' }}>{log.action}</td>
+                      <td style={{ padding: 10, fontWeight: 600, color: isViolation ? '#fb7185' : 'var(--text-accent)' }}>{log.action}</td>
                       <td style={{ padding: 10 }}><span className="badge badge-info" style={{ fontSize: '0.65rem' }}>{log.role}</span></td>
                       <td style={{ padding: 10 }}>{log.endpoint}</td>
                       <td style={{ padding: 10, color: 'var(--text-muted)' }}>{log.ip_address}</td>

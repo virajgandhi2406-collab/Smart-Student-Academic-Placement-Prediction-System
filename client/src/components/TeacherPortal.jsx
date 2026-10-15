@@ -438,8 +438,12 @@ export default function TeacherPortal() {
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div>
                       <div style={{ fontWeight: 700 }}>{s.name} ({s.prn})</div>
-                      <div style={{ fontSize: '0.8rem', color: '#fb7185', marginTop: 4 }}>
-                        ⚠️ Risk Factors: {s.profile?.active_backlogs > 0 && `${s.profile.active_backlogs} active backlog(s); `}
+                      <div style={{ fontSize: '0.8rem', color: '#fb7185', marginTop: 4, display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+                        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                          <AlertTriangle size={13} color="#fb7185" />
+                          <strong>Risk Factors:</strong>
+                        </span>
+                        {s.profile?.active_backlogs > 0 && `${s.profile.active_backlogs} active backlog(s); `}
                         {s.profile?.cgpa < 6.5 && `Low CGPA (${s.profile.cgpa}); `}
                         {s.profile?.attendance_percent < 75 && `Low attendance (${s.profile.attendance_percent}%); `}
                       </div>

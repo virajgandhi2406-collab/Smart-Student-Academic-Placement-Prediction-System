@@ -19,7 +19,11 @@ import {
   Send,
   Play,
   RotateCcw,
-  Sparkles
+  Sparkles,
+  ArrowRight,
+  Info,
+  Lock,
+  Check
 } from 'lucide-react';
 
 export default function StudentPortal() {
@@ -255,9 +259,9 @@ export default function StudentPortal() {
             </div>
           </div>
 
-          <div className="glass-panel" style={{ padding: 16, background: 'rgba(99, 102, 241, 0.08)', borderColor: 'var(--border-glow)' }}>
-            <div style={{ fontSize: '0.75rem', color: 'var(--accent-accent)', textTransform: 'uppercase', fontWeight: 700 }}>ML Placement Probability</div>
-            <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#a5b4fc', marginTop: 4 }}>
+          <div className="glass-panel" style={{ padding: 16, background: 'rgba(37, 99, 235, 0.08)', borderColor: 'var(--border-color)' }}>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-accent)', textTransform: 'uppercase', fontWeight: 700 }}>ML Placement Probability</div>
+            <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-accent)', marginTop: 4 }}>
               {predictionData?.is_locked ? 'Locked' : `${predictionData?.prediction?.placement_probability || '--'}%`}
             </div>
             <div style={{ fontSize: '0.75rem', color: predictionData?.prediction?.placement_outcome === 'Placed' ? '#34d399' : '#fbbf24', marginTop: 4 }}>
@@ -350,9 +354,7 @@ export default function StudentPortal() {
                     fontSize: '4.5rem',
                     fontWeight: 900,
                     letterSpacing: '-0.04em',
-                    background: 'linear-gradient(135deg, #a5b4fc, #38bdf8)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
+                    color: 'var(--text-accent)',
                     lineHeight: 1
                   }}>
                     {predictionData?.prediction?.placement_probability}%
@@ -378,7 +380,7 @@ export default function StudentPortal() {
                           <span style={{ fontWeight: 600 }}>{Math.round(weight * 100)}% weight</span>
                         </div>
                         <div style={{ height: 6, background: 'rgba(255, 255, 255, 0.05)', borderRadius: 3, overflow: 'hidden' }}>
-                          <div style={{ height: '100%', width: `${weight * 100 * 2.5}%`, background: 'linear-gradient(to right, #6366f1, #06b6d4)', borderRadius: 3 }} />
+                          <div style={{ height: '100%', width: `${weight * 100 * 2.5}%`, background: 'var(--accent-primary)', borderRadius: 3 }} />
                         </div>
                       </div>
                     ))}
@@ -395,8 +397,8 @@ export default function StudentPortal() {
                   </h3>
                   <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem' }}>
                     {(predictionData?.prediction?.strengths || []).map((s, idx) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                        <span style={{ color: '#10b981', fontWeight: 700 }}>✓</span>
+                      <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <Check size={14} color="#10b981" />
                         <span>{s}</span>
                       </li>
                     ))}
@@ -419,14 +421,15 @@ export default function StudentPortal() {
                 </div>
 
                 {/* Actionable Recommendations */}
-                <div className="glass-panel" style={{ padding: 24, borderLeft: '4px solid #6366f1' }}>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#a5b4fc', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
+                <div className="glass-panel" style={{ padding: 24, borderLeft: '4px solid var(--accent-primary)' }}>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-accent)', display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
                     <TrendingUp size={18} /> Personalized Recommendations
                   </h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: '0.85rem' }}>
                     {(predictionData?.prediction?.recommendations || []).map((r, idx) => (
-                      <div key={idx} style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '10px 14px', borderRadius: 'var(--radius-sm)' }}>
-                        👉 {r}
+                      <div key={idx} style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '10px 14px', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <ArrowRight size={14} color="var(--accent-primary)" />
+                        <span>{r}</span>
                       </div>
                     ))}
                   </div>
@@ -441,21 +444,27 @@ export default function StudentPortal() {
       {activeTab === 'official' && (
         <div className="glass-panel" style={{ padding: 28, maxWidth: 900 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-            <ShieldCheck size={24} color="#6366f1" />
+            <ShieldCheck size={24} color="var(--accent-primary)" />
             <h2 style={{ fontSize: '1.3rem', fontWeight: 800 }}>Institutional Academic Identity</h2>
           </div>
 
           <div style={{
-            background: 'rgba(99, 102, 241, 0.08)',
-            border: '1px solid rgba(99, 102, 241, 0.25)',
-            borderRadius: 'var(--radius-md)',
+            background: 'rgba(37, 99, 235, 0.08)',
+            border: '1px solid rgba(37, 99, 235, 0.25)',
+            borderRadius: 'var(--radius-sm)',
             padding: '12px 16px',
             fontSize: '0.825rem',
             color: 'var(--text-secondary)',
             marginBottom: 24,
-            lineHeight: 1.5
+            lineHeight: 1.5,
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: 10
           }}>
-            ℹ️ <strong>Institution Controlled:</strong> {officialInfo.read_only_notice || 'Official records are strictly managed by administrative staff. If there is an error in your department, PRN, or batch, please contact your mentor or university admin.'}
+            <Info size={16} color="var(--text-accent)" style={{ flexShrink: 0, marginTop: 2 }} />
+            <div>
+              <strong>Institution Controlled:</strong> {officialInfo.read_only_notice || 'Official records are strictly managed by administrative staff. If there is an error in your department, PRN, or batch, please contact your mentor or university admin.'}
+            </div>
           </div>
 
           <div className="grid-2">
@@ -631,11 +640,11 @@ export default function StudentPortal() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {(Array.isArray(profile.skills) ? profile.skills : []).map((s, idx) => (
                 <span key={idx} style={{
-                  background: 'rgba(99, 102, 241, 0.15)',
-                  border: '1px solid rgba(99, 102, 241, 0.3)',
-                  color: '#a5b4fc',
-                  padding: '4px 12px',
-                  borderRadius: 'var(--radius-full)',
+                  background: 'rgba(37, 99, 235, 0.12)',
+                  border: '1px solid rgba(37, 99, 235, 0.3)',
+                  color: '#93c5fd',
+                  padding: '4px 10px',
+                  borderRadius: 'var(--radius-xs)',
                   fontSize: '0.8rem',
                   display: 'flex',
                   alignItems: 'center',
@@ -677,7 +686,7 @@ export default function StudentPortal() {
           {/* Upload Card */}
           <div className="glass-panel" style={{ padding: 24 }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <UploadCloud size={20} color="#6366f1" /> Upload Supporting Document
+              <UploadCloud size={20} color="var(--accent-primary)" /> Upload Supporting Document
             </h3>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: 16 }}>
               Upload your documents for faculty verification. Supported formats: <strong>PDF, JPG, PNG</strong> (Max 5MB).
@@ -813,8 +822,9 @@ export default function StudentPortal() {
                       ))}
                     </div>
 
-                    <div style={{ marginTop: 16, fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                      🔒 Hidden Edge-Case Tests: {assessmentQuestions[activeQIndex]?.hidden_test_cases_count || 1} test cases will be validated upon submission.
+                    <div style={{ marginTop: 16, fontSize: '0.75rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <Lock size={13} />
+                      <span>Hidden Edge-Case Tests: {assessmentQuestions[activeQIndex]?.hidden_test_cases_count || 1} test cases will be validated upon submission.</span>
                     </div>
                   </div>
 
@@ -875,9 +885,9 @@ export default function StudentPortal() {
                           style={{
                             textAlign: 'left',
                             padding: '12px 16px',
-                            background: isSelected ? 'rgba(99, 102, 241, 0.2)' : 'rgba(255, 255, 255, 0.03)',
+                            background: isSelected ? 'rgba(37, 99, 235, 0.15)' : 'rgba(255, 255, 255, 0.03)',
                             border: `1px solid ${isSelected ? 'var(--accent-primary)' : 'var(--border-color)'}`,
-                            borderRadius: 'var(--radius-md)',
+                            borderRadius: 'var(--radius-sm)',
                             color: 'var(--text-primary)',
                             cursor: 'pointer',
                             display: 'flex',
