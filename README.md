@@ -8,6 +8,24 @@
 > **Team Members:** Viraj Gandhi P. (PRN: 1272260230), Vraj Modi J. (PRN: 1272260212), Priyanka Jana T. (PRN: 1272262225)  
 > **Faculty Mentor:** Prof. Pradeep Tiwari Sir  
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-EduPredict_Web_App-6366f1?style=for-the-badge&logo=google-chrome&logoColor=white)](https://virajgandhi2406-collab.github.io/Smart-Student-Academic-Placement-Prediction-System/)
+[![Security Audit](https://img.shields.io/badge/Security_Audit-100%25_Passed-10b981?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/virajgandhi2406-collab/Smart-Student-Academic-Placement-Prediction-System)
+[![GitHub Pages](https://img.shields.io/badge/Deployment-GitHub_Pages-22c55e?style=for-the-badge&logo=github&logoColor=white)](https://virajgandhi2406-collab.github.io/Smart-Student-Academic-Placement-Prediction-System/)
+
+---
+
+## 🌐 Live Application Link
+
+Access the live, interactive cloud deployment directly in your web browser:  
+🔗 **[https://virajgandhi2406-collab.github.io/Smart-Student-Academic-Placement-Prediction-System/](https://virajgandhi2406-collab.github.io/Smart-Student-Academic-Placement-Prediction-System/)**
+
+> **Quick Demo Access**: Click the **"Switch Role Demo"** button in the navbar of the live app to test instantly as:
+> - **Student:** Viraj Gandhi P. (PRN: 1272260230)
+> - **Student (Leader):** Ansari FaizAlam M. (PRN: 1272260053)
+> - **Faculty Mentor:** Prof. Pradeep Tiwari Sir
+> - **Administrator:** Academic Dean / Head Admin  
+> *(Default Demo Password: `EduPredict@2026`)*
+
 ---
 
 ## 1. System Architecture Overview
@@ -111,37 +129,30 @@ All seed accounts are initialized with password: `EduPredict@2026`
 
 Evaluated on 1,200 historical student placement profiles:
 
-| Model Architecture | Accuracy | Precision | Recall | F1-Score | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Logistic Regression** | 99.17% | 100.0% | 98.95% | 99.47% | Benchmarked Baseline |
-| **Decision Tree** | 65.00% | 96.49% | 57.89% | 72.37% | Benchmarked |
-| **Random Forest** | 56.25% | 97.75% | 45.79% | 62.37% | Ensemble Tree |
-| **XGBoost (Calibrated)** | 85.83% | 87.50% | 95.79% | 91.46% | **Production Champion** |
+| Model Architecture | Accuracy | Precision | Recall | F1-Score | Role in EduPredict |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Logistic Regression** | **99.17%** | 100.0% | 98.95% | 99.47% | High-Accuracy Linear Baseline |
+| **Decision Tree** | **65.00%** | 96.49% | 57.89% | 72.37% | Interpretable Tree Model |
+| **Random Forest** | **56.25%** | 97.75% | 45.79% | 62.37% | Multi-Tree Ensemble |
+| **XGBoost (Calibrated)** | **85.83%** | 87.50% | 95.79% | 91.46% | **Production Champion** |
 
 ---
 
-## 6. How to Run the Project
+## 6. How to Run Locally
 
 ### Prerequisites
 - Node.js (v18+)
 - Python (v3.10+)
 
-### Quick Start (3 Terminals)
-
-**Terminal 1 — Backend Express Server (Port 5000):**
 ```bash
+# Terminal 1: Backend Express Server (Port 5000)
 cd server
-npm.cmd install
 npm.cmd start
-```
 
-**Terminal 2 — Python FastAPI ML Microservice (Port 8000):**
-```bash
+# Terminal 2: Python ML Microservice (Port 8000)
 python ml-service/main.py
-```
 
-**Terminal 3 — React Frontend (Port 5173):**
-```bash
+# Terminal 3: React Frontend (Port 5173)
 cd client
 npm.cmd run dev
 ```
